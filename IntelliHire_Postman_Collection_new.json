@@ -1,0 +1,84 @@
+{
+  "info": {
+    "_postman_id": "d3e7b548-412c-4e91-a2de-cc7bc01ce100",
+    "name": "IntelliHire Job Portal API - Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Trimmed collection containing only publicly working endpoints for quick testing."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "admin", "type": "string" },
+      { "key": "password", "value": "password", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+        "name": "Register Candidate",
+        "request": {
+        "method": "POST",
+        "header": [
+            { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+            "raw": "{{baseUrl}}/auth/register",
+            "host": ["{{baseUrl}}"],
+            "path": ["auth", "register"]
+        },
+        "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"candidate1\",\n  \"email\": \"candidate1@example.com\",\n  \"password\": \"password\",\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\"\n}"
+        }
+        },
+        "response": []
+    },
+    {
+        "name": "Current User",
+        "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+            "raw": "{{baseUrl}}/auth/me",
+            "host": ["{{baseUrl}}"],
+            "path": ["auth", "me"]
+        },
+        "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"candidate1\",\n  \"email\": \"candidate1@example.com\",\n  \"password\": \"password\",\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\"\n}"
+        }
+        },
+        "response": []
+    },
+    {
+        "name": "Get All Jobs",
+        "request": {
+        "method": "GET",
+        "url": {
+            "raw": "{{baseUrl}}/jobs",
+            "host": ["{{baseUrl}}"],
+            "path": ["jobs"]
+        }
+        },
+        "response": []
+    },
+    {
+        "name": "Get Job By Id",
+        "request": {
+        "method": "GET",
+        "url": {
+            "raw": "{{baseUrl}}/jobs/1",
+            "host": ["{{baseUrl}}"],
+            "path": ["jobs", "1"]
+        }
+        },
+        "response": []
+    }
+  ]
+}
